@@ -15,6 +15,12 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">Home</x-nav-link>
+    <x-nav-link :href="route('about')" :active="request()->routeIs('about')">About</x-nav-link>
+    <x-nav-link :href="route('contact')" :active="request()->routeIs('contact')">Contact</x-nav-link>
+    <x-nav-link :href="route('catalog')" :active="request()->routeIs('catalog')">Catalog</x-nav-link>
+    <x-nav-link :href="route('cart')" :active="request()->routeIs('cart')">Cart</x-nav-link>
+    <x-nav-link :href="route('admin')" :active="request()->routeIs('admin')">Admin</x-nav-link>
                 </div>
             </div>
 
@@ -70,6 +76,12 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">Home</x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('about')" :active="request()->routeIs('about')">About</x-responsive-nav-link>
+             <x-responsive-nav-link :href="route('contact')" :active="request()->routeIs('contact')">Contact</x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('catalog')" :active="request()->routeIs('catalog')">Catalog</x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('cart')" :active="request()->routeIs('cart')">Cart</x-responsive-nav-link>
+             <x-responsive-nav-link :href="route('admin')" :active="request()->routeIs('admin')">Admin</x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
