@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Istok+Web&family=Pinyon+Script&display=swap');
+
+body {
+    font-family: 'Istok Web', sans-serif;
+}
+
+.brand-font {
+    font-family: 'Pinyon Script', cursive;
+}

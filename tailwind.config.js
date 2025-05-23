@@ -11,11 +11,15 @@ export default {
 
     theme: {
         extend: {
-            fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-            },
+        fontFamily: {
+            istok: ['"Istok Web"', 'sans-serif'],
+            pinyon: ['"Pinyon Script"', 'cursive'],
+        },
+        colors: {
+            cream: '#FFFDD0',
+            olive: '#8E8A46',
+        }
         },
     },
-
-    plugins: [forms],
+    plugins: [],
 };
