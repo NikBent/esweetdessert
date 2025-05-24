@@ -1,11 +1,12 @@
 <?php
-
+/** @var \Illuminate\Routing\Router $router */
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Admin\AdminController;
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -16,6 +17,13 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+Route::view('/contact', 'contact')->name('contact');
+
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+Route::get('/contact', [ContactController::class, 'index'])->
+name('contact.index');
+Route::get('/contact/{id}', [ContactController::class, 'show'])->
+name('contact.show');
 
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/about', [PageController::class, 'about'])->name('about');
@@ -23,8 +31,6 @@ Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 Route::get('/shop', [PageController::class, 'shop'])->name('shop');
 Route::get('/cart', [PageController::class, 'cart'])->name('cart');
 
-
-Route::view('/contact', 'contact')->name('contact');
 
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
