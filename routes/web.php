@@ -2,11 +2,11 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PageController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Admin\AdminController;
+use Illuminate\Support\Facades\Route;
 
 
 // Authenticated user dashboard
@@ -21,6 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+<<<<<<< HEAD
 // Static pages
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/about', [PageController::class, 'about'])->name('about');
@@ -35,6 +36,21 @@ Route::post('/update-cart', [ProductController::class, 'updateCart'])->name('upd
 Route::post('/remove-from-cart', [ProductController::class, 'removeFromCart'])->name('remove.from.cart');
 
 // Admin subdomain group
+=======
+// Public Pages
+Route::get('/', [PageController::class, 'home'])->name('home');
+Route::get('/about', [PageController::class, 'about'])->name('about');
+Route::get('/contact', [PageController::class, 'contact'])->name('contact');
+
+// Contact Form Submit
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+
+// Shop Page (Handled by ShopController)
+Route::get('/shop', [ShopController::class, 'index'])->name('shop');
+Route::get('/cart', [PageController::class, 'cart'])->name('cart');
+
+// Admin Subdomain
+>>>>>>> 86abc65edde1be72c39787ffe6550eff426be77e
 Route::domain('admin.esweet.local')->middleware(['auth', 'is_admin'])->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('/orders', [AdminController::class, 'orders'])->name('admin.orders');
@@ -47,5 +63,8 @@ Route::get('verify-email', EmailVerificationPromptController::class)
     ->middleware('auth')
     ->name('verification.notice');
 
+<<<<<<< HEAD
 // Auth routes
+=======
+>>>>>>> 86abc65edde1be72c39787ffe6550eff426be77e
 require __DIR__ . '/auth.php';
