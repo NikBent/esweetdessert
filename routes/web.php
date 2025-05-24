@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ShopController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Admin\AdminController;
 
@@ -24,6 +25,9 @@ Route::view('/contact', 'contact')->name('contact');
 
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
+Route::get('/shop', [ShopController::class, 'index'])->name('shop');
+
+
 Route::domain('admin.esweet.local')->middleware(['auth', 'is_admin'])->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('/orders', [AdminController::class, 'orders'])->name('admin.orders');
@@ -35,4 +39,4 @@ Route::get('verify-email', EmailVerificationPromptController::class)
     ->middleware('auth')
     ->name('verification.notice');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

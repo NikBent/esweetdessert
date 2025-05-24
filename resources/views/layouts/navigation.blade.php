@@ -40,7 +40,7 @@
             <!-- Left Nav -->
             <div class="hidden md:flex space-x-8 text-sm font-medium">
                 <a href="/about" class="hover:underline">About</a>
-                <a href="/shop" class="hover:underline">Shop</a>
+                <a href="{{ route('shop')}}" class="hover:underline">Shop</a>
             </div>
 
             <!-- Center Logo -->
