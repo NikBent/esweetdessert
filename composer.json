@@ -22,12 +22,15 @@
         "pestphp/pest-plugin-laravel": "^3.2"
     },
     "autoload": {
-        "psr-4": {
-            "App\\": "app/",
-            "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
-        }
+    "psr-4": {
+        "App\\": "app/",
+        "Database\\Factories\\": "database/factories/",
+        "Database\\Seeders\\": "database/seeders/"
     },
+    "files": [
+        "app/helpers.php"
+    ]
+},
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
@@ -71,7 +74,5 @@
             "pestphp/pest-plugin": true,
             "php-http/discovery": true
         }
-    },
-    "minimum-stability": "stable",
-    "prefer-stable": true
+    }
 }
