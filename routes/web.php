@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -17,8 +18,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [PageController::class, 'home'])->name('home');
+Route::get('/about', [PageController::class, 'about'])->name('about');
+Route::get('/contact', [PageController::class, 'contact'])->name('contact');
+Route::get('/shop', [PageController::class, 'shop'])->name('shop');
+Route::get('/cart', [PageController::class, 'cart'])->name('cart');
+
 
 require __DIR__.'/auth.php';
