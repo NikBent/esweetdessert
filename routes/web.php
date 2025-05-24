@@ -35,3 +35,4 @@ Route::get('verify-email', EmailVerificationPromptController::class)
     ->middleware('auth')
     ->name('verification.notice');
 
+require __DIR__.'/auth.php';
