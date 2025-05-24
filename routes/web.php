@@ -2,11 +2,11 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PageController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Admin\AdminController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -18,20 +18,19 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// Public Pages
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
-Route::get('/shop', [PageController::class, 'shop'])->name('shop');
-Route::get('/cart', [PageController::class, 'cart'])->name('cart');
 
-
-Route::view('/contact', 'contact')->name('contact');
-
+// Contact Form Submit
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
+// Shop Page (Handled by ShopController)
 Route::get('/shop', [ShopController::class, 'index'])->name('shop');
+Route::get('/cart', [PageController::class, 'cart'])->name('cart');
 
-
+// Admin Subdomain
 Route::domain('admin.esweet.local')->middleware(['auth', 'is_admin'])->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('/orders', [AdminController::class, 'orders'])->name('admin.orders');
