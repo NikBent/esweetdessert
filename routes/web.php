@@ -19,9 +19,8 @@ Route::middleware('auth')->group(function () {
 });
 Route::view('/contact', 'contact')->name('contact');
 
-Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
-Route::get('/contact', [ContactController::class, 'index'])->
-name('contact.index');
+//Route::get('/contact', [ContactController::class, 'index'])->
+//name('contact.index');
 Route::get('/contact/{id}', [ContactController::class, 'show'])->
 name('contact.show');
 
@@ -34,12 +33,12 @@ Route::get('/cart', [PageController::class, 'cart'])->name('cart');
 
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
-Route::domain('admin.esweet.local')->middleware(['auth', 'is_admin'])->group(function () {
-    Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
-    Route::get('/orders', [AdminController::class, 'orders'])->name('admin.orders');
-    Route::get('/products', [AdminController::class, 'products'])->name('admin.products');
+//Route::domain('admin.esweet.local')->middleware(['auth', 'is_admin'])->group(function () {
+//    Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
+//    Route::get('/orders', [AdminController::class, 'orders'])->name('admin.orders');
+//    Route::get('/products', [AdminController::class, 'products'])->name('admin.products');
     // Add other admin routes here
-});
+//});
 
 Route::get('verify-email', EmailVerificationPromptController::class)
     ->middleware('auth')
