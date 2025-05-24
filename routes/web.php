@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ProductController; 
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -26,3 +27,5 @@ Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 Route::get('/catalog', [PageController::class, 'catalog'])->name('catalog');
 Route::get('/cart', [PageController::class, 'cart'])->name('cart');
 Route::get('/admin', [PageController::class, 'admin'])->middleware(['auth', 'verified'])->name('admin');
+
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
