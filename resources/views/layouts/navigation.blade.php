@@ -51,7 +51,7 @@
 
             <!-- Right Nav -->
             <div class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="/contact" class="hover:underline">Contact</a>
+                <a href="{{ route('contact') }}" class="hover:underline">Contact</a>
                 <a href="/cart" class="hover:underline">Cart</a>
             </div>
 
